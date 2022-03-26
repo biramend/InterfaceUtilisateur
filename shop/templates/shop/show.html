@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+  {% block content %}
+        <h2> {{ product.name }} </h2>
+        <img src="{{ product.image.url }}" alt="image" style="max-width:250px;">
+        {% if user.is_authenticated %}
+             <p><a href="{% url 'cart' product.slug %}">Add To Cart</a> </p>
+        {% endif %}
+
+  {% endblock %}

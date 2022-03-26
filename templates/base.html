@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+</head>
+<body>
+<a href="{% url 'accueil' %}">
+     <h1>Boutique Mossedolie</h1>
+</a>
+{% if  user.is_authenticated %}
+    <a href="{% url 'logout' %}">Deconnexion( {{ user.username }})</a>
+    <a href="{% url 'panier' %}">Panier({{ user.cart.orders.count }})</a>
+{% else %}
+ <a href="{% url 'signup' %}">S'inscrire</a>
+  <a href="{% url 'login' %}">Connexion</a>
+{% endif %}
+
+  {% block content %}
+  {% endblock %}
+</body>
+</html>
